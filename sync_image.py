@@ -19,8 +19,8 @@ def pull_image():
         if 'sha256' in name:
             print(name)
             sha256_name = name.split("@")
-            #new_name = sha256_name[0].split("/")[-1]
-            new_name = sha256_name[0]
+            new_name = sha256_name[0].split("/")[-1]
+            #new_name = sha256_name[0]
             tag = sha256_name[-1].split(":")[-1][0:6]
             image = "crpi-4t784y1dkvir02m5.cn-hangzhou.personal.cr.aliyuncs.com/xujinjunimages/" + new_name + ":"+ tag
             cmd = "docker tag {0}   {1}".format(name, image)
@@ -31,8 +31,8 @@ def pull_image():
             subprocess.call("docker push {}".format(image), shell=True)
             print("docker push {}".format(image))
         else:
-            #new_name = "crpi-4t784y1dkvir02m5.cn-hangzhou.personal.cr.aliyuncs.com/xujinjunimages/" + name.split("/")[-1]
-            new_name = "crpi-4t784y1dkvir02m5.cn-hangzhou.personal.cr.aliyuncs.com/xujinjunimages/" + name
+            new_name = "crpi-4t784y1dkvir02m5.cn-hangzhou.personal.cr.aliyuncs.com/xujinjunimages/" + name.split("/")[-1]
+            #new_name = "crpi-4t784y1dkvir02m5.cn-hangzhou.personal.cr.aliyuncs.com/xujinjunimages/" + name
             cmd = "docker tag {0}   {1}".format(name, new_name)
             subprocess.call("docker pull {}".format(name), shell=True)
             print("docker pull {}".format(name))
