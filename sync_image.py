@@ -15,9 +15,7 @@ def get_filename():
 
 def pull_image():
     name_list= get_filename()
-    
     for name in name_list:
-         subprocess.call("docker login -u 763742347@qq.com -p xujinjun830513 crpi-4t784y1dkvir02m5.cn-hangzhou.personal.cr.aliyuncs.com", shell=True)
         if 'sha256' in name:
             print(name)
             sha256_name = name.split("@")
@@ -29,6 +27,7 @@ def pull_image():
             subprocess.call("docker pull {}".format(name), shell=True)
             print("docker pull {}".format(name))
             subprocess.run(["docker", "tag", name, image])
+            subprocess.call("docker login -u 763742347@qq.com -p xujinjun830513 crpi-4t784y1dkvir02m5.cn-hangzhou.personal.cr.aliyuncs.com", shell=True)
             subprocess.call("docker push {}".format(image), shell=True)
             print("docker push {}".format(image))
         else:
@@ -38,9 +37,8 @@ def pull_image():
             subprocess.call("docker pull {}".format(name), shell=True)
             print("docker pull {}".format(name))
             subprocess.run(["docker", "tag", name, new_name])
-           
+            subprocess.call("docker login -u 763742347@qq.com -p xujinjun830513 crpi-4t784y1dkvir02m5.cn-hangzhou.personal.cr.aliyuncs.com", shell=True)
             subprocess.call("docker push {}".format(new_name), shell=True)
-
             print("docker push {}".format(new_name))
         
 if __name__ == "__main__":
