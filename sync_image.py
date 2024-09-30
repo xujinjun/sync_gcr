@@ -15,8 +15,9 @@ def get_filename():
 
 def pull_image():
     name_list= get_filename()
-     subprocess.call("docker login -u 763742347@qq.com -p xujinjun830513 crpi-4t784y1dkvir02m5.cn-hangzhou.personal.cr.aliyuncs.com", shell=True)
+    
     for name in name_list:
+         subprocess.call("docker login -u 763742347@qq.com -p xujinjun830513 crpi-4t784y1dkvir02m5.cn-hangzhou.personal.cr.aliyuncs.com", shell=True)
         if 'sha256' in name:
             print(name)
             sha256_name = name.split("@")
