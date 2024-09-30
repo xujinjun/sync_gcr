@@ -27,10 +27,10 @@ def pull_image():
             image = "crpi-4t784y1dkvir02m5.cn-hangzhou.personal.cr.aliyuncs.com/xujinjunimages/" + new_name + ":"+ tag
             cmd = "docker tag {0}   {1}".format(name, image)
             subprocess.call("docker pull {}".format(name), shell=True)
-             print("docker pull {}".format(name))
+            print("docker pull {}".format(name))
             subprocess.run(["docker", "tag", name, image])
             subprocess.call("docker push {}".format(image), shell=True)
-             print("docker push {}".format(image))
+            print("docker push {}".format(image))
         else:
             #new_name = "crpi-4t784y1dkvir02m5.cn-hangzhou.personal.cr.aliyuncs.com/xujinjunimages/" + name.split("/")[-1]
             new_name = "crpi-4t784y1dkvir02m5.cn-hangzhou.personal.cr.aliyuncs.com/xujinjunimages/" + name
